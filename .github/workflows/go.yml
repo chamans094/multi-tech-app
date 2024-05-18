@@ -6,11 +6,9 @@ name: Go CI for lint and Print
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
-  Lint:
+  GoLint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -22,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: cd go && go mod tidy
 
-    - name: Linting
+    - name: Go Linting
       run: |
         cd go
         curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.58.1
