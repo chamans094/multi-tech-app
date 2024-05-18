@@ -15,13 +15,13 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v4
       with:
-        go-version: '20'
+        node-version: '20'
     - name: Install dependencies
       run: cd nextjs && npm install
 
     - name: Nextjs Linting
-      run: npm run lint
+      run: cd nextjs && npm run lint
    
     - name: Nextjs Test
-      run: npm test
+      run: cd nextjs && npm test
 
