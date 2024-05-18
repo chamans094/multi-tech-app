@@ -24,14 +24,10 @@ jobs:
 
     - name: Linting
       run: |
-        pwd
         cd go
-        pwd
-        echo "Running curl progran"
         curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.58.1
         ./bin/golangci-lint run
-        echo "Running go progran"
+        echo -e "\nRunning go program\n"
         go run ./main.go
-        pwd
 
 
