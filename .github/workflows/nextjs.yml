@@ -23,5 +23,14 @@ jobs:
       run: cd nextjs && npm run lint
    
     - name: Running nextjs app 
-      run: cd nextjs && npm run dev
+      run: ip r && npm install -g pm2@latest
+      
+    - name: building next app
+      run: cd nextjs && npm run build
+      
+    - name: starting pm2 instance and sleep
+      run: |
+        cd nextjs && pm2 start npm --name "my-app" -- start
+        sleep 60
+
 
