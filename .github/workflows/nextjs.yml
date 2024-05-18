@@ -31,7 +31,7 @@ jobs:
     - name: starting pm2 instance and sleep
       run: |
         cd nextjs && pm2 start npm --name "my-app" -- start
-        pm2 logs
+        pm2 logs --lines 50 --nostream
         sleep 30
 
 
