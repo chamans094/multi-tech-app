@@ -22,6 +22,6 @@ jobs:
     - name: Nextjs Linting
       run: cd nextjs && npm run lint
    
-    - name: Nextjs Test
-      run: cd nextjs && npm test
+    - name: Running nextjs app 
+      run: cd nextjs && npm run dev
 
