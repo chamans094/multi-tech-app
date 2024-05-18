@@ -23,10 +23,9 @@ jobs:
 
     - name: Linting
       run: |
-        curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.58.1
+        cd go && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.58.1
         export PATH=$PATH:$(go env GOPATH)/bin/
-        cd go 
-        ./bin/golangci-lint run
-        go run ./main.go
+        ./go/bin/golangci-lint run
+        go run ./go/main.go
 
 
