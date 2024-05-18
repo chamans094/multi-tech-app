@@ -1,0 +1,26 @@
+name: wordpress CI 
+
+on:
+  push:
+    branches: [ "main", "feature/*"]
+
+jobs:
+  NextjsLint:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout code 
+      uses: actions/checkout@v4
+
+    - name: Set up node
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+        
+    - name: Install Php CS
+      run: cd wordpress && composer global require "squizlabs/php_codesniffer=*"
+      
+    - name: Run PHP
+      run: cd wordpress && php ./hello.php
+
+        
+    
