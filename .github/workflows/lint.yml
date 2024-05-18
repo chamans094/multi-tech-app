@@ -1,7 +1,7 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Go
+name: Go CI for lint and Print
 
 on:
   push:
@@ -21,8 +21,12 @@ jobs:
       with:
         go-version: '1.20'
 
-    - name: Build
-      run: go build -v ./go/...
+    - name: Linting
+      run: |
+        curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.58.1
+        export PATH=$PATH:$(go env GOPATH)/bin/
+        cd go 
+        ./bin/golangci-lint run
+        go run ./main.go
 
-    - name: Test
-      run: go test -v ./go/...
+
