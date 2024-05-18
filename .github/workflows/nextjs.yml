@@ -22,8 +22,8 @@ jobs:
     - name: Nextjs Linting
       run: cd nextjs && npm run lint
    
-    - name: Installing pm2 and getting ip address
-      run: ifconfig && ip r l && npm install -g pm2@latest
+    - name: Installing pm2 globally
+      run: npm install -g pm2@latest
       
     - name: building next app
       run: cd nextjs && npm run build
@@ -31,6 +31,7 @@ jobs:
     - name: starting pm2 instance and sleep
       run: |
         cd nextjs && pm2 start npm --name "my-app" -- start
-        sleep 120
+        pm2 logs --lines 5 --nostream
+        sleep 30
 
 
