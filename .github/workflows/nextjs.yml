@@ -15,13 +15,23 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v4
       with:
-        go-version: '20'
+        node-version: '20'
     - name: Install dependencies
       run: cd nextjs && npm install
 
     - name: Nextjs Linting
-      run: npm run lint
+      run: cd nextjs && npm run lint
    
-    - name: Nextjs Test
-      run: npm test
+    - name: Installing pm2 globally
+      run: npm install -g pm2@latest
+      
+    - name: building next app
+      run: cd nextjs && npm run build
+      
+    - name: starting pm2 instance and sleep
+      run: |
+        cd nextjs && pm2 start npm --name "my-app" -- start
+        sleep 30
+        pm2 logs --nostream
+
 
