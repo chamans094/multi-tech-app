@@ -6,15 +6,15 @@ on:
 
 jobs:
   NextjsLint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Checkout code 
       uses: actions/checkout@v4
 
     - name: Set up node
-      uses: actions/setup-php@v4
+      uses: shivammathur/setup-php@v2
       with:
-        php-version: '8'
+        php-version: '7.4'
         
     - name: Install Php CS
       run: cd wordpress && composer global require "squizlabs/php_codesniffer=*"
