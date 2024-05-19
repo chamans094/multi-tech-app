@@ -33,7 +33,7 @@ jobs:
       needs: GoLint
   
       steps:
-        - name: Deploy to Staging
-          run: echo "Deploying Go app to staging..."
+        - name: Deploy to main/Staging
+          run: echo "Deploying Go app to main/staging..."
 
 
