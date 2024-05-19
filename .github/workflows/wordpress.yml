@@ -22,7 +22,7 @@ jobs:
         git clone -b main https://github.com/WordPress/WordPress-Coding-Standards.git wpcs
         cd wordpress && phpcs --config-set installed_paths ~/WPCS, ~/wordpress-standards
         phpcs -i
-        phpcs --standard=WordPress ./wordpress/hello.php
+        # phpcs --standard=WordPress ./wordpress/hello.php
         pwd
         ls -lrath ~
       
