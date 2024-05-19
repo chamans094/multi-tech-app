@@ -20,9 +20,9 @@ jobs:
       run: |
         cd wordpress && composer global require "squizlabs/php_codesniffer=*"
         cat ~/.composer/composer.json
-        echo "true" | composer config --no-plugins allow-plugins.johnpbloch/wordpress-core-installer
-        composer require johnpbloch/wordpress-core
-        composer require johnpbloch/wordpress
+        echo "true" | composer config --global --no-plugins allow-plugins.johnpbloch/wordpress-core-installer
+        composer global require johnpbloch/wordpress-core
+        composer global require johnpbloch/wordpress
         cat ~/.composer/composer.json
         ls -lrth ~/.composer/
         #composer self-update && composer global update
