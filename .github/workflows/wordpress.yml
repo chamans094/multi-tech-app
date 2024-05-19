@@ -20,6 +20,7 @@ jobs:
       run: |
         cd wordpress && composer global require "squizlabs/php_codesniffer=*"
         cat ~/.composer/composer.json
+        echo "true" | composer config --no-plugins allow-plugins.johnpbloch/wordpress-core-installer
         composer require johnpbloch/wordpress-core
         composer require johnpbloch/wordpress
         cat ~/.composer/composer.json
