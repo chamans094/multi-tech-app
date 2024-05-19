@@ -31,5 +31,12 @@ jobs:
     - name: Run Hello PHP
       run: cd wordpress && php ./hello.php
 
+  deploy:
+      runs-on: ubuntu-20.04
+      needs: PHP
+  
+      steps:
+        - name: Deploy to main/Staging
+          run: echo "Deploying Wordpress application to main/staging..."
         
     
