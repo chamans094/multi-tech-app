@@ -19,7 +19,8 @@ jobs:
     - name: Install Php CS
       run: |
         cd wordpress && composer global require "squizlabs/php_codesniffer=*"
-        pwd
+        cat ~/.composer/composer.json
+        ls -lrth ~/.composer/vendor/bin/
       
     - name: phpcs standards and version
       run: phpcs -i && phpcs --version
