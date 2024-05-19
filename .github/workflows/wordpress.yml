@@ -22,9 +22,9 @@ jobs:
         phpcs -i
         git clone -b main https://github.com/WordPress/WordPress-Coding-Standards.git wpcs
         sudo mkdir ~/.composer/vendor/wp-coding-standards && sudo chown -R runner:docker ~/.composer/vendor/wp-coding-standards
-        cp -r wpcs ~/.composer/vendor/wp-coding-standards/
+        cp -r wpcs ~/.composer/vendor/wp-coding-standards/ && sudo chown -R runner:docker ~/.composer/vendor/wp-coding-standards/wpcs
         cd wordpress && phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs
-        phpcs --standard=WordPress ./hello.php
+        phpcs --standard=WordPress hello.php ; echo $?
       
     - name: phpcs standards and version
       run: phpcs -i && phpcs --version
