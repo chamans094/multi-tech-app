@@ -20,16 +20,14 @@ jobs:
       run: |
         composer global require "squizlabs/php_codesniffer=*"
         phpcs -i
-        #git clone -b main https://github.com/WordPress/WordPress-Coding-Standards.git wpcs
-        #cd wordpress && phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/
-        composer global require "wp-coding-standards/wpcs"
-        phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs
+        git clone -b main https://github.com/WordPress/WordPress-Coding-Standards.git wpcs
+        cd wordpress && phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs
+        #composer global require "wp-coding-standards/wpcs"        
         phpcs -i
-        cat /home/runner/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer.conf
+        cat ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer.conf
         # phpcs --standard=WordPress ./wordpress/hello.php
         which phpcs
         pwd
-        ls -lrath ~
       
     - name: phpcs standards and version
       run: phpcs -i && phpcs --version
