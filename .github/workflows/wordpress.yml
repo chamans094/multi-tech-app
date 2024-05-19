@@ -17,7 +17,9 @@ jobs:
         php-version: '7.4'
         
     - name: Install Php CS
-      run: cd wordpress && composer global require "squizlabs/php_codesniffer=*"
+      run: |
+        cd wordpress && composer global require "squizlabs/php_codesniffer=*"
+        cat ./composer.json
       
     - name: phpcs standards and version
       run: phpcs -i && phpcs --version
