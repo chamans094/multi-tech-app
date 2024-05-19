@@ -27,5 +27,13 @@ jobs:
         ./bin/golangci-lint run
         echo -e "\nRunning go program\n"
         go run ./main.go
+        
+  deploy:
+      runs-on: ubuntu-latest
+      needs: GoLint
+  
+      steps:
+        - name: Deploy to Staging
+          run: echo "Deploying Go app to staging..."
 
 
