@@ -19,6 +19,7 @@ jobs:
     - name: Install Php CS
       run: |
         composer global require "squizlabs/php_codesniffer=*"
+        cd wordpress && phpcs --standard=WordPress ./hello.php
         pwd
         ls -lrath ~
       
