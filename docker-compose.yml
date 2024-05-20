@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   go-app:
-    build: ./go-app
+    build: ./go
     ports:
       - "8080:8080"
     depends_on:
